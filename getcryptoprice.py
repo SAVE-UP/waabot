@@ -6,7 +6,6 @@ def getbtcprice():
     data = response.json()
     btc_price = data["bpi"]["EUR"]["rate"]
     return btc_price
-
 """
 Sample of response from coindesk api
 {'time': 
