@@ -1,0 +1,57 @@
+response_id: "aa3faed7-d98b-48a7-9b0e-ac62fa2a2218-94f60986"
+query_result {
+  query_text: "ajoute 2 plus 2"
+  action: "get_result"
+  parameters {
+    fields {
+      key: "number1"
+      value {
+        number_value: 2.0
+      }
+    }
+    fields {
+      key: "number2"
+      value {
+        number_value: 2.0
+      }
+    }
+  }
+  all_required_params_present: true
+  fulfillment_text: "Ce message provient de dialogflow"
+  fulfillment_messages {
+    text {
+      text: "Ce message provient de dialogflow"
+    }
+  }
+  intent {
+    name: "projects/wabot-ao9v/agent/intents/9d1949f3-2839-4a6f-a9a8-c2d6218b57e0"
+    display_name: "achat.bitcoin"
+  }
+  intent_detection_confidence: 1.0
+  diagnostic_info {
+    fields {
+      key: "webhook_latency_ms"
+      value {
+        number_value: 4.0
+      }
+    }
+  }
+  language_code: "fr"
+}
+webhook_status {
+  code: 3
+  message: "Webhook call failed. Error: INVALID_ARGUMENT, State: URL_REJECTED, Reason: REJECTED_BAD_REQUEST."
+}
+
+fields {
+  key: "number1"
+  value {
+    number_value: 2.0
+  }
+}
+fields {
+  key: "number2"
+  value {
+    number_value: 2.0
+  }
+}
