@@ -20,11 +20,11 @@ def detect_intent_from_text(text, session_id, language_code='fr'):
 
 def fetch_reply(query, session_id):
     response = detect_intent_from_text(query,session_id)
-    print(response.intent.display_name)
+    print(response.intent.display_name) # For Debug Purpose
     fulfillmentText = ""
     som = 0
     btcmarge = 0.01
-    if response.intent.display_name == 'achat.bitcoin':  # Intent Name comparison
+    if response.intent.display_name == '3.1.a.get.price.cfa':   # Intent Name comparison
         btcCurentprice = float(getbtcprice().replace(',', ""))
         print(btcCurentprice)
         btcKaderPrice = btcCurentprice + (btcCurentprice * btcmarge)

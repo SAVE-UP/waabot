@@ -13,15 +13,10 @@ def hello_world():  # this is the home page function that generates the page cod
 @app.route('/sms', methods=['POST'])
 def reply():
     """Respond to incoming calls with a simple text message."""
-    req = request.get_json(silent=True, force=True)
-    print(req, "req reply")
-
     # Fetch the message
     msg = request.form.get('Body')
     phone_no = request.form.get('From')
-
     reply = fetch_reply(msg, phone_no)
-
     # Create reply
     resp = MessagingResponse()
     resp.message(reply)
