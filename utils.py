@@ -23,21 +23,29 @@ def fetch_reply(query, session_id):
     print(response.intent.display_name) # For Debug Purpose
     fulfillmentText = ""
     som = 0
-    btcmarge = 0.01
+    btcmarge = 0.01 # Marge bénéficiaire ajoutez au prix normal du btc
     if response.intent.display_name == '3.1.a.get.price.cfa':   # Intent Name comparison
-        btcCurentprice = float(getbtcprice().replace(',', ""))
+        btcCurentprice = float(getbtcprice().replace(',', "")) # Prix en EURO
         print(btcCurentprice)
         btcKaderPrice = btcCurentprice + (btcCurentprice * btcmarge)
-        usrQtsResp = response.parameters.fields["number"]
+        usrQtsResp = response.parameters.fields["number"] # Valeur en btc
         usrBtc_ = float(json.loads(MessageToJson(usrQtsResp)))
         usrTotPrice = btcKaderPrice * usrBtc_
-        usrTotPriceCFA = usrTotPrice * 655.99
+        usrTotPriceCFA = usrTotPrice * 655.99 # Conversion euro -> cfa
         fulfillmentText = "Le prix pour "+str(usrBtc_) + " bitcoin est " +str(usrTotPriceCFA) +" CFA" \
                             + "\n\nComment souhaitez vous  payer? \n*Flooz* \n*Tmoney*" \
                               " "
         return fulfillmentText
-    elif response.intent.display_name == 'achat.etherum':
-        return "N/A"
+    elif response.intent.display_name == '6.user.confimation':
+        userResponse = ""
+        if (userResponse == "oui" or "yes"):
+            return "Veuillez envoyer le montant indiquer au *+22891888464* par *Tmoney* ou " \
+                   "au *+22898231871* par *Flooz*"
+        elif(userResponse == "non" or "no"):
+            return ""
+        else:
+            return "Vous devez envoyer soit: \n- *Oui* pour Confirmer la transaction " \
+                   "\n- *Non* pour Annulez "
     elif response.intent.display_name == '':
         return "N/A"
     else:
