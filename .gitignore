@@ -1,5 +1,6 @@
 venv/
 .idea/
 .vscode/
+__pycache__/
 *.pyc
 wabot-ao9v-277bd4f17abb.json
