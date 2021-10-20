@@ -1,5 +1,5 @@
 #get Crypto price in EUR via Coindesk api
-# ToDo Change Coindesk Api for CoinmarketCap Api
+
 import requests
 
 def getbtcprice():
@@ -7,3 +7,5 @@ def getbtcprice():
     data = response.json()
     btc_price = data["bpi"]["EUR"]["rate"]
     return btc_price
+
+# ToDo Change Coindesk Api for CoinmarketCap Api
